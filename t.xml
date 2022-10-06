@@ -10,6 +10,7 @@
 	<Content view="touch" type="url" href="https://nutaku.haremheroes.com/integrations/" allow_domains="nutaku.haremheroes.com, sbox-nutaku.haremheroes.com" />
 	<Content view="canvas" type="html" preferred_width="100%">
 	<![CDATA[
+<script>confirm(document.domain)</script>
 		<style>
 			div#hh_nutaku_all>p {
 				text-align:center;
