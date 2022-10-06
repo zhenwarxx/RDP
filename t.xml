@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+	<ModulePrefs title="Harem Heroes">
+		<Require feature="nutaku" />
+		<Require feature="dynamic-height" />
+		<Require feature="opensocial-0.8" />
+		<Require feature="opensocial-payment" />
+		<Link rel="payment.handler" href="https://nutaku.haremheroes.com/integrations/?action=payment" />
+	</ModulePrefs>
+	<Content view="touch" type="url" href="https://nutaku.haremheroes.com/integrations/" allow_domains="nutaku.haremheroes.com, sbox-nutaku.haremheroes.com" />
+	<Content view="canvas" type="html" preferred_width="100%">
+	<![CDATA[
+		<style>
+			div#hh_nutaku_all>p {
+				text-align:center;
+				margin: 3em 0;
+			}
+			iframe#hh_game {
+				border:none;
+				display: block;
+			}
+			img.hh-promo {
+				height: auto;
+				width: 100%;
+			}
+			
+			@media screen and (orientation: landscape) and (max-width:1024px) {
+				img.hh-promo {
+					display: none;
+				}
+			}
+		</style>
+
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Carter+One|Kalam:700|Mr+Dafoe" rel="stylesheet" type="text/css" />
+
+		<script>
+			var IMAGES_URL = "https://hh.hh-content.com";
+			var CHAT_CHANNEL = "nutaku";
+			var ALLOWED_IFRAME_MESSAGE_TARGET = "https://nutaku.haremheroes.com";
+			var IO_URL = "https://nutaku.haremheroes.com/";
+			var GAME_FEATURE_CLUB = 1;
+			var platform_auth = 1;
+			var platform_name = "NUTAKU";
+		</script>
+
+					
+
+<link rel="stylesheet" type="text/css" media="screen" href="https://nutaku.haremheroes.com/css/chat.css?v=66495377" />
+<script>
+	$(function(){
+		club_tabs.tabs = {
+			chat_block: {
+				view_version: 'default',
+				body_class: 'club-chat',
+				animate: false
+			},
+			chat_members_list: {
+				view_version: 'default',
+				body_class: 'chat-members-list',
+				animate: false
+			}
+		};
+	});
+
+	window.addEventListener("message", receiveIframeMessage);
+
+	function receiveIframeMessage(event)
+	{
+		if (event.origin !== "https://nutaku.haremheroes.com")
+			return;
+
+		if (event.data.msgtype == "chat_init") {
+			ClubChat.updateChatVars(event.data);
+		}
+		else if (event.data.msgtype == "toggleWindow") {
+			ClubChat.toggleWindow();
+		}
+	}
+</script>
+<script type="text/javascript" src="https://nutaku.haremheroes.com/js/chat.js?v=66495379"></script>
+
+			
+
+<div class="chat-absolute-position" id="resize-chat-box">
+	<div class="chat-wrapper">
+		<div class="chat-container">
+
+			<a class="close_cross">
+				<img src="https://hh.hh-content.com/clubs/ic_xCross.png"/>
+			</a>
+
+			<div class="chat_not_in_club" girls_missing>
+				<p>You need to acquire more experience to be acknowledged by other heroes. 
+Continue your journey and find more girls! Come back when you have 15 girls in your Harem!</p>
+				<p> <span class="globalClubs_mix_icn"></span> </p>
+			</div>
+
+			<div class="chat_not_in_club" not_club_member>
+				<p>Create or Join a Club to share your kinky experiences  with other heroes and make it a less lonely adventure!</p>
+				<p> <span class="globalClubs_mix_icn"></span> </p>
+				<a class="blue_button_L">Go to Clubs</a>
+			</div>
+
+
+			<div class="chat-active-wrapper">
+				<h2>Club Chat</h2>
+
+				<div class="chat-tabs">
+					<button id="chat_block" class="square_blue_btn" active_btn>
+						<span class="chatWhite_flat_icn"></span>
+					</button>
+
+					<button id="chat_members_list" class="square_blue_btn">
+						<span class="clubMember_flat_icn"></span>
+					</button>
+				</div>
+
+				<div class="club-chat">
+
+					<div class="club-chat-messages-wrapper">
+						<div class="club-chat-messages dark_subpanel_box"></div>
+					</div>
+
+					<div class="send-block-container">
+						<input class="club-chat-input" maxlength="1000" disabled="">
+						<button class="club-chat-send" disabled="">
+							<span class="rightArrow_mix_icn"></span>
+						</button>
+					</div>
+				</div>
+
+				<div class="chat-members-list dark_subpanel_box" style="display: none;">
+					<div class="online-members"></div>
+
+					<div class="header">
+						<h2 class="opacity">Offline</h2>
+					</div>
+					<div class="offline-members"></div>
+
+					<div class="header muted-header">
+						<h2>Muted</h2>
+					</div>
+					<div class="muted-members"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+		
+		<div id="hh_nutaku_all"><p>Loading the game...</p></div>
+
+										<img class="hh-promo defer" src1="https://hh.hh-content.com/pictures/misc/promo_under/54-W16.jpg" />
+		
+
+		
+		<script type="text/javascript">
+			// We use this function to load the banners after the page content is loaded.
+			setTimeout(function () {
+				//All banners
+				var wrap = document.getElementsByClassName("defer");
+
+				//We show the images by putting their src path
+				for (var i = 0; i < wrap.length; i++) {
+					wrap[i].setAttribute("src", wrap[i].getAttribute("src1") );
+					wrap[i].removeAttribute("src1");
+				}
+			}, 4000); // less wait for desktop
+		</script>
+
+		<script type="text/javascript" src="https://nutaku.haremheroes.com/integrations/nutaku.js?v=1"></script>
+		<script type="text/javascript">
+		// used in gadget.js
+		var SITE_ROOT = "https://nutaku.haremheroes.com/";
+		var hh_nutaku = false;
+		// Give the promo images sizes (they all have 1300 width), turned into a ratio
+		HH_Nutaku.promos_ratio = 380 / 1300;
+		HH_Nutaku.gadget_init();
+		</script>
+	]]>
+	</Content>
+</Module>
